@@ -2,7 +2,7 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-gc"
-VERSION=7.2e
+VERSION=7.6.0
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Boehm-Demers-Weiser garbage collector library for Win64 toolchain"
@@ -12,13 +12,17 @@ allows you to allocate memory basically as you normally would, without
 explicitly deallocating memory that is no longer useful. The collector
 automatically recycles memory when it determines that it can no longer
 be otherwise accessed."
-HOMEPAGE="http://www.hpl.hp.com/personal/Hans_Boehm/gc/"
+HOMEPAGE="http://www.hboehm.info/gc/"
 SRC_URI="${HOMEPAGE}/gc_source/gc-${VERSION}.tar.gz"
 SRC_DIR="gc-${VERSION%[a-z]}"
 
 DIFF_EXCLUDES="*.pc"
 
-CYGCONF_ARGS="--enable-cplusplus --enable-threads=win32 --without-libatomic-ops"
+CYGCONF_ARGS="
+	--enable-shared --enable-static
+	--enable-cplusplus
+	--enable-threads=win32
+"
 MAKEOPTS+=" dist_pkgdata_DATA= "
 DOCS="doc/README doc/README.win32"
 
