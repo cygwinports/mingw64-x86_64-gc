@@ -2,7 +2,7 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-gc"
-VERSION=7.6.0
+VERSION=7.6.4
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Boehm-Demers-Weiser garbage collector library for Win64 toolchain"
@@ -25,5 +25,3 @@ CYGCONF_ARGS="
 "
 MAKEOPTS+=" dist_pkgdata_DATA= "
 DOCS="doc/README doc/README.win32"
-
-KEEP_LA_FILES="none"
